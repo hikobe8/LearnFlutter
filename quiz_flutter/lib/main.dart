@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_flutter/category.dart';
 
-class HelloRectangle extends StatelessWidget{
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        color: Colors.greenAccent,
-        height: 400.0,
-        width: 300.0,
-        child: Center(
-          child: Text(
-            'Hello Flutter',
-             style: TextStyle(
-               fontSize: 40.0
-             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+const _categoryName = 'Cake';
+const _categoryIcon = Icons.cake;
+const _categoryColor = Colors.green;
 
 void main() {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello"),
-        ),
-        body: HelloRectangle()
-      )));
+  runApp(UnitCoveredApp());
+}
+
+class UnitCoveredApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          backgroundColor: Colors.green[100],
+          body: Center(
+            child: Category(
+              name: _categoryName,
+              color: _categoryColor,
+              iconLocation: _categoryIcon,
+            ),
+          ),
+        ));
+  }
 }
